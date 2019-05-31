@@ -16,8 +16,10 @@ export class ProductsComponent {
     }, 2000);
   }
 
-  onAddProduct() {
-    this.products.push(this.productName);
+  onAddProduct(form) {
+    if (form.valid) {
+      this.products.push(form.value.productName);
+    }
   }
 
   onRemoveProduct(productName: string) {
