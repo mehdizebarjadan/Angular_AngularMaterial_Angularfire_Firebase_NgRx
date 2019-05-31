@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './products.component.html'
 })
 export class ProductsComponent {
-  productName = 'A book';
+  productName = 'book';
   isDisabled = true;
   products = ['A Book', 'A Tree'];
 
@@ -18,5 +18,9 @@ export class ProductsComponent {
 
   onAddProduct() {
     this.products.push(this.productName);
+  }
+
+  onRemoveProduct(productName: string) {
+    this.products = this.products.filter(p => p !== productName);
   }
 }
