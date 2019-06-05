@@ -3,7 +3,6 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 import { Exercise } from '../exercise.model';
 import { TrainingService } from '../training.service';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-past-trainings',
@@ -14,8 +13,8 @@ export class PastTrainingsComponent implements OnInit, AfterViewInit {
   displayedColumns = ['date', 'name', 'duration', 'calories', 'state'];
   dataSource = new MatTableDataSource<Exercise>();
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   constructor(private trainingService: TrainingService) {}
 
